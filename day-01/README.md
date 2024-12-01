@@ -45,3 +45,10 @@ Answer:
  
 
 You can also [Share] this puzzle.
+
+### usage
+
+```
+cargo run --bin part-1 -- input.txt
+cargo run --bin part-2 -- input_2.txt
+```
