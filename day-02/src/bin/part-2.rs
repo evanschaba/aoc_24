@@ -2,6 +2,10 @@ use std::env;
 use std::fs::File;
 use std::io::{self, BufRead};
 
+// cargo fmt && cargo clippy --fix --allow-dirty --allow-staged
+// cargo run --bin part-2 -- input_2.txt
+// Number of safe reports: 366 ✅
+
 // Function to check if the report levels are safe
 fn is_safe(levels: &[i32]) -> bool {
     if levels.len() < 2 {

@@ -3,7 +3,8 @@ use std::fs::File;
 use std::io::{self, BufRead};
 use std::path::Path;
 
-// cargo run -- input.txt
+// cargo fmt && cargo clippy --fix --allow-dirty --allow-staged
+// cargo run --bin part-1 -- input.txt
 // Number of safe reports: 306 ✅
 
 fn main() {
