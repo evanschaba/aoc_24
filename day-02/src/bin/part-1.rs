@@ -3,7 +3,7 @@ use std::fs::File;
 use std::io::{self, BufRead};
 use std::path::Path;
 
-// cargo run -- input.txt 
+// cargo run -- input.txt
 // Number of safe reports: 306 ✅
 
 fn main() {
@@ -11,7 +11,6 @@ fn main() {
     let args: Vec<String> = env::args().collect();
     if args.len() != 2 {
         eprintln!("Usage: cargo run --bin part-1 -- <input_file>");
-
         std::process::exit(1);
     }
 
@@ -20,7 +19,7 @@ fn main() {
 
     let mut safe_count = 0;
 
-    for line in lines.flatten() {
+    for line in lines.map_while(Result::ok) {
         let levels: Vec<i32> = line
             .split_whitespace()
             .filter_map(|num| num.parse::<i32>().ok())
