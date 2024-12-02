@@ -63,3 +63,7 @@ Each input file should contain two lists of integers, one per line. For example:
 - Replace `input.txt` and `input_2.txt` with the appropriate file paths.
 
 Good luck, and may the stars guide you!
+
+### License
+
+This project is licensed under the Unlicense. You are free to use, modify, distribute, or do whatever you like with this code.
