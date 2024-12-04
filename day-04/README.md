@@ -10,18 +10,19 @@ Day 4 of Advent of Code 2024 presents a challenging word search puzzle. The stor
 
 Given a grid of characters, your task is to find how many times the word "XMAS" appears. The word can appear:
 
-Horizontally
+- [x] - Horizontally
 
-Vertically
+- [x] - Vertically
 
-Diagonally
+- [x] - Diagonally
 
-Backwards
+- [x] - Backwards
 
-Overlapping other words
+- [x] - Without Overlapping with words
 
 Example grid:
 
+```
 MMMSXXMASM
 MSAMXMSMSA
 AMXSXMAAMM
@@ -32,21 +33,22 @@ SMSMSASXSS
 SAXAMASAAA
 MAMMMXMMMM
 MXMXAXMASX
+```
 
-In this example, "XMAS" appears a total of 18 times.
+In this example, `"XMAS"` appears a total of 18 times.
 
 **Part 2: X-MAS Pattern Search**
 
-For part 2, you need to find instances of the "X-MAS" pattern, which consists of two occurrences of "MAS" arranged in an X shape:
-
+For part 2, you need to find instances of the `"X-MAS"` pattern, which consists of two occurrences of `"MAS"` arranged in an X shape:
+```
 M.S
 .A.
 M.S
+```
+Each occurrence of `"MAS"` can be oriented forwards or backwards within the X.
 
-Each occurrence of "MAS" can be oriented forwards or backwards within the X.
-
-Example grid (with the X-MAS marked):
-
+Example grid (with the `X-MAS` marked):
+```
 .M.S......
 ..A..MSMS.
 .M.S.MAA..
@@ -57,8 +59,8 @@ S.S.S.S.SS.
 .A.A.A.A..
 M.M.M.M.M.
 ..........
-
-In this example, the X-MAS pattern appears 9 times.
+```
+In this example, the `X-MAS` pattern appears 9 times.
 
 ##### Approach and Solution
 
@@ -66,7 +68,7 @@ Steps
 
 Read and parse the input grid: Convert the input text file into a 2D array.
 
-Implement a search algorithm: Iterate through the grid and check for instances of "XMAS" or the X-'MAS' pattern.
+Implement a search algorithm: Iterate through the grid and check for instances of "XMAS" or the `X-'MAS'` pattern.
 
 Count occurrences: Implement logic to count each valid instance, with valid ranes, without off by 1 misses and without overlaps.
 
