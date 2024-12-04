@@ -2,3 +2,4 @@ Cargo.lock
 /target
 challenge1.md
 ./tmp
+./run_part*
