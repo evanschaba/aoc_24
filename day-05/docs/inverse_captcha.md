@@ -25,4 +25,3 @@ What is the solution to your captcha?
 To begin, [**get your puzzle input**](input_inverse_captcha.txt).
 
 Answer: ___
- 

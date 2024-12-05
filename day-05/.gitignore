@@ -1,2 +1,6 @@
 /target
+tmp
+/tmp
 Cargo.lock
+run.sh
+*.py
