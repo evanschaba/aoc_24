@@ -1,18 +1,21 @@
-use std::env;
-use std::fs;
 
-#[cfg(test)]
-mod tests {
-    #[allow(unused)]
-    use super::*;
-}
 
-fn main() {
-    let args: Vec<String> = env::args().collect();
-    if args.len() < 2 {
-        eprintln!("Usage: {} <input_file>", args[0]);
-        return;
-    }
-    let input_file = &args[1];
-    let _input = fs::read_to_string(input_file).expect("Failed to read input file");
-}
+
+// Grid 
+// constants; positions, adjascent positions, bounds, flags for branching & invariants
+// Grid will contain GridCells
+// Each GridCell is a line 
+// GridCell is a vector of Grid Tiles
+// Each Grid tile contains its own constants x,y,adjascent coords, Tile Type(Empty, Guard, Wall, e.t.c..)
+/* 
+....#.....     <- Grid Cell
+....+---+[#]<- Grid Tile 
+....|...|.
+..#.|...|.
+..+-+-+#|.
+..|.|.|.|.
+.#+-^-+-+.
+.+----++#.
+#+----++..
+......#O..
+*/
