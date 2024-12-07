@@ -20,20 +20,20 @@ fn solve(data: &str) -> i64 {
 }
 
 // Calibrates a single expression to check if the result matches by trying all operator combinations
-fn calibrate(eq: &Expr, ops: &[char]) -> i64 {
+fn calibrate(expr: &Expr, ops: &[char]) -> i64 {
     let mut result: i64 = 0; // Initialize result
-    let size = eq.nums.len() - 1; // Number of operator positions
+    let size = expr.nums.len() - 1; // Number of operator positions
     let mut current: Vec<char> = vec![ADD; size]; // Start with all '+' operators
-    gen_inner_op(eq, &mut result, size, ops, &mut current); // Generate operator combinations recursively
+    gen_inner_op(expr, &mut result, size, ops, &mut current); // Generate operator combinations recursively
     result
 }
 
 // Recursively generates all possible operator combinations and checks if they solve the equation
-fn gen_inner_op(eq: &Expr, result: &mut i64, size: usize, ops: &[char], current: &mut Vec<char>) {
+fn gen_inner_op(expr: &Expr, result: &mut i64, size: usize, ops: &[char], current: &mut Vec<char>) {
     if size == 0 {
         // Base case: check if current operator combination solves the equation
-        if solve_expr(&eq.nums, current) == eq.result {
-            *result = eq.result; // Set the result if solved
+        if solve_expr(&expr.nums, current) == expr.result {
+            *result = expr.result; // Set the result if solved
         }
         return;
     }
@@ -41,7 +41,7 @@ fn gen_inner_op(eq: &Expr, result: &mut i64, size: usize, ops: &[char], current:
     // Try all operators at the current position
     for c in ops.iter() {
         current[size - 1] = *c; // Set the operator
-        gen_inner_op(eq, result, size - 1, ops, current); // Recurse to the next position
+        gen_inner_op(expr, result, size - 1, ops, current); // Recurse to the next position
 
         if *result > 0 {
             return; // Stop recursion early if result is found

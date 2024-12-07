@@ -21,20 +21,20 @@ fn solve(data: &str) -> i64 {
 }
 
 // Attempt to calibrate the given equation by finding operator combinations.
-fn calibrate(eq: &Expr, ops: &[char]) -> i64 {
+fn calibrate(expr: &Expr, ops: &[char]) -> i64 {
     let mut result: i64 = 0;
-    let size = eq.nums.len() - 1; // Number of operators required.
+    let size = expr.nums.len() - 1; // Number of operators required.
     let mut current: Vec<char> = vec![ADD; size]; // Start with all addition operators.
-    gen_inner_op(eq, &mut result, size, ops, &mut current); // Generate combinations recursively.
+    gen_inner_op(expr, &mut result, size, ops, &mut current); // Generate combinations recursively.
     result
 }
 
 // Recursive function to generate operator combinations and check results.
-fn gen_inner_op(eq: &Expr, result: &mut i64, size: usize, ops: &[char], current: &mut Vec<char>) {
+fn gen_inner_op(expr: &Expr, result: &mut i64, size: usize, ops: &[char], current: &mut Vec<char>) {
     if size == 0 { // Base case: when all operators are set.
         // Check if the combination of operators produces the expected result.
-        if solve_expr(&eq.nums, current) == eq.result {
-            *result = eq.result; // Update the result if it's valid.
+        if solve_expr(&expr.nums, current) == expr.result {
+            *result = expr.result; // Update the result if it's valid.
         }
         return;
     }
@@ -42,7 +42,7 @@ fn gen_inner_op(eq: &Expr, result: &mut i64, size: usize, ops: &[char], current:
     // Iterate through available operators and set each one at the current position.
     for ch in ops.iter() {
         current[size - 1] = *ch;
-        gen_inner_op(eq, result, size - 1, ops, current); // Recurse to set the next operator.
+        gen_inner_op(expr, result, size - 1, ops, current); // Recurse to set the next operator.
 
         if *result > 0 { // Stop early if a valid result is found.
             return;
