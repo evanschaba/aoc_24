@@ -68,12 +68,10 @@ fn evolve_stone(stone: u64, blinks: u8, memoization_table: &mut HashMap<(u64, u8
 #[cfg(test)]
 mod tests {
     use super::*;
-
-    const SAMPLE_INPUT: &str = "125 17";
-
+ 
     #[test]
     fn test_calculate_total_stones_sample() {
-        let stones: Vec<u64> = SAMPLE_INPUT.split_whitespace()
+        let stones: Vec<u64> = "125 17".split_whitespace()
             .map(|num| num.parse::<u64>().unwrap())
             .collect();
 
