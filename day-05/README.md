@@ -1,32 +1,25 @@
-### Advent of Code - Day 5: Print Queue
+# Day 5: Print Queue
 
-[**Challenge details**](docs/challenge.md)
+[**Challenge Details**](docs/challenge.md)
 
-### Approach to solving the queue challenge
+## Problem Decomposition
 
-#### Problem Summary
-The task is to determine if updates to a manual, defined as sequences of page numbers, adhere to a set of ordering rules. For updates that are in the correct order, identify the "middle page number" and sum them up.
+The problem revolves around ensuring that pages for a safety manual are printed in the correct order based on certain rules. For each set of updates, we need to validate if the order of pages follows the rules. If it does, we calculate the middle page number of the valid updates.
 
-#### Preferred Approach
-1. **Parse Input**:
-   - Split the input into two sections: the rules and the updates.
-   - Represent the rules as directed relationships (e.g., a graph or adjacency list).
+### Part 1
+- Read and parse the input to get the page ordering rules and updates.
+- Validate each update to check if the page numbers are in the correct order according to the rules.
+- Calculate the sum of middle page numbers for valid updates.
 
-2. **Validate Order**:
-   - For each update, check if the sequence respects all relevant rules.
-   - Ignore rules for pages not present in the update.
+### Part 2
+- For updates that are not in the correct order, reorder the pages according to the rules.
+- Calculate the middle page number for each corrected update and sum them.
 
-3. **Find Middle Pages**:
-   - Identify correctly-ordered updates.
-   - Extract the middle element from each update.
-
-4. **Compute the Result**:
-   - Sum the middle page numbers of all valid updates.
-
-#### Benefits of This Approach
-- ***Efficiency***: Using graph traversal (e.g., topological sort or constraints checking) ensures that even larger inputs can be processed quickly.
-- ***Scalability***: Isolating rules and updates simplifies validation and reduces redundant checks.
-- ***Modularity***: The parsing, validation, and summation steps can be tested and refined independently.
+- [x] Parse input
+- [x] Implement validation for update order
+- [x] Identify correct updates (Part 1)
+- [x] Sort incorrectly ordered updates (Part 2)
+- [x] Calculate sum of middle numbers for valid and corrected updates
 
 #### Usage Guide
 
@@ -51,3 +44,4 @@ The task is to determine if updates to a manual, defined as sequences of page nu
   `cargo run --bin part-2 <input_file>`
 
 Replace `<input_file>` with the path to your input file.
+---
