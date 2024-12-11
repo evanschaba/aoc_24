@@ -1,69 +1,47 @@
-# Advent of Code 2024: Historian Hysteria
+# Day 01: Historian Hysteria
 
---- Day 1: Historian Hysteria ---
+[**Challenge Details**](docs/challenge.md)
 
-The Chief Historian is always present for the big Christmas sleigh launch, but nobody has seen him in months! Last anyone heard, he was visiting locations historically significant to the North Pole. A group of Senior Historians has asked you to join them in checking the places he was most likely to visit.
+## Problem Decomposition
 
-### Goal
-Help the historians collect **50 stars** before Santa's takeoff on **December 25th** by solving puzzles. Each day, two puzzles are unlocked. Completing the first unlocks the second, and each puzzle awards one star.
 
----
+The task requires comparing two lists of location IDs and calculating the total distance between them in Part 1 and a similarity score in Part 2.
 
-### Problem Description
+**Part 1**:
+- Pair up the smallest numbers in both lists and calculate their absolute distance.
+- Sum up the distances to get the total.
 
-The historians' list of locations to check is empty! While searching the Chief Historian's office, they find two lists of **location IDs**. However, these lists are inconsistent. Your task is to help them reconcile the two lists by calculating the **total distance** between them.
+**Part 2**:
+- Count how many times each number from the left list appears in the right list.
+- Multiply each number in the left list by the number of times it appears in the right list, then sum these products to get the similarity score.
 
-#### Example Input
-```
-List 1: [3, 4, 2, 1, 3, 3]
-List 2: [4, 3, 5, 3, 9, 3]
-```
 
-#### Matching Procedure:
-1. Sort both lists.
-2. Pair elements in sorted order.
-3. Compute the absolute difference for each pair.
-4. Sum all differences.
+- [x] Parse the input into two lists of numbers.
+- [x] Sort both lists.
+- [x] Calculate the total distance between corresponding pairs in the two lists (Part 1).
+- [x] Count occurrences of each number from the left list in the right list (Part 2).
+- [x] Compute the similarity score by multiplying and summing these counts.
 
-#### Example Calculation
-| Pair | Difference |
-|------|------------|
-| (1, 3) | 2 |
-| (2, 3) | 1 |
-| (3, 3) | 0 |
-| (3, 4) | 1 |
-| (3, 5) | 2 |
-| (4, 9) | 5 |
+#### Usage Guide
 
-**Total Distance**: `2 + 1 + 0 + 1 + 2 + 5 = 11`
+- **Linting**  
+  `cargo clippy`
 
----
+- **Formatting**  
+  `cargo fmt`
 
-### Usage
+- **Autofix**  
+  `cargo clippy --fix && cargo fmt`
 
-#### Running the Solutions
-Use the following commands to execute the solutions for Part 1 and Part 2:
+- **Testing**  
+  `cargo test`
 
-```bash
-cargo run --bin part-1 -- input.txt
-cargo run --bin part-2 -- input_2.txt
-```
+- **Running Part 1**  
+  To run the program for part 1, use:  
+  `cargo run --bin part-1 <input_file>`
 
-#### Input Format
-Each input file should contain two lists of integers, one per line. For example:
-```txt
-3, 4, 2, 1, 3, 3
-4, 3, 5, 3, 9, 3
-```
+- **Running Part 2**  
+  To run the program for part 2, use:  
+  `cargo run --bin part-2 <input_file>`
 
----
-
-### Notes
-- Ensure your input files are formatted correctly.
-- Replace `input.txt` and `input_2.txt` with the appropriate file paths.
-
-Good luck, and may the stars guide you!
-
-### License
-
-This project is licensed under the Unlicense. You are free to use, modify, distribute, or do whatever you like with this code.
+Replace `<input_file>` with the path to your input file.

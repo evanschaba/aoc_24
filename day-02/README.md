@@ -1,57 +1,40 @@
-# Advent of Code 2024 - Day 2: Red-Nosed Reports
+# Day 02: Red-Nosed Reactor Reports
 
-## Problem Overview
+[**Challenge Details**](docs/challenge.md)
 
-### Part 1: Safe Reports Analysis
+## Problem Decomposition
 
-The engineers at the Red-Nosed Reindeer nuclear fusion/fission plant have requested your help in analyzing unusual data reports from the reactor. Each report is a list of numbers, called levels, separated by spaces. Your task is to identify reports that meet the following criteria for safety:
+The task involves analyzing reports with levels that follow certain patterns of increase or decrease. The levels need to be either all increasing or all decreasing with differences between adjacent levels in the range [-3, -1] or [1, 3].
 
-1. The levels are either strictly increasing or strictly decreasing.
-2. The difference between any two adjacent levels is at least 1 and at most 3.
+- [x] **Part 1: Identify Safe Reports**
+  - [x] Parse input to extract reports.
+  - [x] Implement logic to check if the report's levels are all increasing or decreasing within allowed differences.
+  - [x] Count how many reports are safe.
 
-**Example input:**
-7 6 4 2 1 1 2 7 8 9 9 7 6 2 1 1 3 2 4 5 8 6 4 4 1 1 3 6 7 9
+- [x] **Part 2: Handle the Problem Dampener**
+  - [x] Modify the logic to allow for a single "bad" level that can be removed from the report.
+  - [x] Count how many reports are now safe after considering the dampener.
 
-csharp
-Copy code
+#### Usage Guide
 
-**Output for Part 1:**
-In the given example, 2 reports are safe.
+- **Linting**  
+  `cargo clippy`
 
-### Part 2: Problem Dampener
+- **Formatting**  
+  `cargo fmt`
 
-The engineers have a "Problem Dampener," which allows the reactor safety systems to tolerate one level that would otherwise render the report unsafe. If removing a single level from an unsafe report would make it safe, the report should be considered safe.
+- **Autofix**  
+  `cargo clippy --fix && cargo fmt`
 
-**Example input with Part 2 rules:**
-7 6 4 2 1: Safe without removing any level. 1 2 7 8 9: Unsafe regardless of which level is removed. 9 7 6 2 1: Unsafe regardless of which level is removed. 1 3 2 4 5: Safe by removing the second level, 3. 8 6 4 4 1: Safe by removing the third level, 4. 1 3 6 7 9: Safe without removing any level.
+- **Testing**  
+  `cargo test`
 
-markdown
-Copy code
+- **Running Part 1**  
+  To run the program for part 1, use:  
+  `cargo run --bin part-1 <input_file>`
 
-**Output for Part 2:**
-In this updated scenario, 4 reports are now safe.
+- **Running Part 2**  
+  To run the program for part 2, use:  
+  `cargo run --bin part-2 <input_file>`
 
-## Code Quality and Validation
-
-This project includes automated code quality checks, ensuring the highest level of maintainability and production readiness. The code adheres to best practices and includes detailed documentation. The project uses continuous integration (CI) to validate code with tests and format checks.
-
-## usage
-
-```bash
-# Clone
-git clone https://github.com/username/aoc_2024.git
-cd aoc_2024/day-02
-
-# Run the project in debug mode:
-cargo run --bin part-2 -- input_2.txt
-
-#Lint and format the code:
-cargo test
-cargo clippy
-cargo fmt
-```
-
-### License
-
-This project is licensed under the Unlicense. You are free to use, modify, distribute, or do whatever you like with this code.
-
+Replace `<input_file>` with the path to your input file.

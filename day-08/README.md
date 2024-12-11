@@ -14,19 +14,26 @@ For Day 8, the task was to identify antinodes created by antennas based on their
 - Check if these positions are valid (within the grid and meeting the distance criteria).
 - Track and count unique antinode locations.
 
+#### Usage Guide
 
-## Usage Instructions
+- **Linting**  
+  `cargo clippy`
 
-```zsh
-    # Lint, Format & apply auto-fixes:
-    cargo fmt 
-    cargo clippy --fix --allow-dirty --allow-staged;
+- **Formatting**  
+  `cargo fmt`
 
-    # testing with RUST_BACKTRACE:
-    RUST_BACKTRACE=1 cargo test --bin part-1
-    RUST_BACKTRACE=1 cargo test --bin part-2
+- **Autofix**  
+  `cargo clippy --fix && cargo fmt`
 
-    # Running the Program:**
-    cargo run --bin part-1 -- challenge_1.txt
-    cargo run --bin part-2 -- challenge_2.txt
-```
+- **Testing**  
+  `cargo test`
+
+- **Running Part 1**  
+  To run the program for part 1, use:  
+  `cargo run --bin part-1 <input_file>`
+
+- **Running Part 2**  
+  To run the program for part 2, use:  
+  `cargo run --bin part-2 <input_file>`
+
+Replace `<input_file>` with the path to your input file.

@@ -28,3 +28,26 @@ The task is to determine if updates to a manual, defined as sequences of page nu
 - **Scalability**: Isolating rules and updates simplifies validation and reduces redundant checks.
 - **Modularity**: The parsing, validation, and summation steps can be tested and refined independently.
 
+#### Usage Guide
+
+- **Linting**  
+  `cargo clippy`
+
+- **Formatting**  
+  `cargo fmt`
+
+- **Autofix**  
+  `cargo clippy --fix && cargo fmt`
+
+- **Testing**  
+  `cargo test`
+
+- **Running Part 1**  
+  To run the program for part 1, use:  
+  `cargo run --bin part-1 <input_file>`
+
+- **Running Part 2**  
+  To run the program for part 2, use:  
+  `cargo run --bin part-2 <input_file>`
+
+Replace `<input_file>` with the path to your input file.

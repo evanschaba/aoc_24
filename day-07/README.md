@@ -33,28 +33,26 @@ The challenges were tackled by dividing them into distinct, manageable tasks, al
 - **Debugging Ease**: Clear separation of tasks simplifies debugging and identifying performance bottlenecks.
 - **Extensibility**: Transitioning from Part 1 to Part 2 required minimal changes, demonstrating the codebase's flexibility.
 
-## Usage Instructions
+#### Usage Guide
 
-Follow these steps to work with this Rust project:
+- **Linting**  
+  `cargo clippy`
 
-```zsh
-# Format the Code
-# Ensure the code adheres to Rust's standard formatting:
-cargo fmt --all
+- **Formatting**  
+  `cargo fmt`
 
-# Check & Auto-Fix Warnings
-# Use Clippy to lint and improve code quality:
-cargo clippy --all-targets --all-features -- -D warnings
+- **Autofix**  
+  `cargo clippy --fix && cargo fmt`
 
-# Automatically Apply Fixes
-cargo fix --allow-dirty --allow-staged
+- **Testing**  
+  `cargo test`
 
-# Run the Code
-# Execute the program with debugging enabled:
-RUST_BACKTRACE=1 cargo run --bin part-1 -- docs/challenge_1.txt
-RUST_BACKTRACE=1 cargo run --bin part-2 -- docs/challenge_2.txt
+- **Running Part 1**  
+  To run the program for part 1, use:  
+  `cargo run --bin part-1 <input_file>`
 
-# Test the Code
-# Run all unit tests to verify correctness:
-RUST_BACKTRACE=1 cargo test --bin part-1
-RUST_BACKTRACE=1 cargo test --bin part-2
+- **Running Part 2**  
+  To run the program for part 2, use:  
+  `cargo run --bin part-2 <input_file>`
+
+Replace `<input_file>` with the path to your input file.

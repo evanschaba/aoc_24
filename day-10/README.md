@@ -30,30 +30,27 @@ Trail Traversal:
 - [x] Part 2 (Trailhead Ratings):
     - [x] Count the distinct hiking trails starting from each trailhead.
     - [x] Use DFS to track each unique trail path and sum the ratings across all trailheads.
-  
+
 #### Usage Guide
 
-```
-# Linting
-cargo clippy
+- **Linting**  
+  `cargo clippy`
 
-# Formatting
-cargo fmt
+- **Formatting**  
+  `cargo fmt`
 
-# Autofix
-cargo clippy --fix && cargo fmt
+- **Autofix**  
+  `cargo clippy --fix && cargo fmt`
 
-# Testing
-cargo test
+- **Testing**  
+  `cargo test`
 
-# Running Part 1
-# To run the program for part 1 (25 blinks), use:
-cargo run --bin part-1 <input_file>
+- **Running Part 1**  
+  To run the program for part 1, use:  
+  `cargo run --bin part-1 <input_file>`
 
+- **Running Part 2**  
+  To run the program for part 2, use:  
+  `cargo run --bin part-2 <input_file>`
 
-# Running Part 2
-# To run the program for part 2 (75 blinks), use:
-cargo run --bin part-2 <input_file>
-
-# Replace <input_file> with docs/challenge.txt.
-```
+Replace `<input_file>` with the path to your input file.
