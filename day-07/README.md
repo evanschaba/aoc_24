@@ -27,11 +27,11 @@ The challenges were tackled by dividing them into distinct, manageable tasks, al
 
 ### Benefits of This Approach
 
-- **Modularity**: Each function handles a single task, making the code more understandable, maintainable, and testable.
-- **Scalability**: Structured design makes adding new operators or adapting logic straightforward.
-- **Reusability**: Recursive solution generation and validation logic are reusable for similar problems.
+- ***Modularity***: Each function handles a single task, making the code more understandable, maintainable, and testable.
+- ***Scalability***: Structured design makes adding new operators or adapting logic straightforward.
+- ***Reusability***: Recursive solution generation and validation logic are reusable for similar problems.
 - **Debugging Ease**: Clear separation of tasks simplifies debugging and identifying performance bottlenecks.
-- **Extensibility**: Transitioning from Part 1 to Part 2 required minimal changes, demonstrating the codebase's flexibility.
+- ***Extensibility***: Transitioning from Part 1 to Part 2 required minimal changes, demonstrating the codebase's flexibility.
 
 #### Usage Guide
 

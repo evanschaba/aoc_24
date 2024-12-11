@@ -6,7 +6,7 @@ Returning after what seems like only a few seconds to The Historians, they expla
 
 Fortunately, they are *pretty sure* that adding a single new obstruction *won't* cause a time paradox. They'd like to place the new obstruction in such a way that the guard will get *stuck in a loop*, making the rest of the lab safe to search.
 
-To have the lowest chance of creating a time paradox, The Historians would like to know *all* of the possible positions for such an obstruction. The new obstruction can't be placed at the guard's starting position - the guard is there right now and would notice.
+To have the lowest chance of creating a time paradox, The Historians would like to know **all** of the possible positions for such an obstruction. The new obstruction can't be placed at the guard's starting position - the guard is there right now and would notice.
 
 In the above example, there are only `6` different positions where a new obstruction would cause the guard to get stuck in a loop. The diagrams of these six situations use O to mark the new obstruction, | to show a position where the guard moves up/down, - to show a position where the guard moves left/right, and + to show a position where the guard moves both up/down and left/right.
 

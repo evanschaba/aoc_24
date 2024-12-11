@@ -6,7 +6,7 @@ The reindeer is holding a book titled "Lava Island Hiking Guide". However, when 
 
 Perhaps you can help fill in the missing hiking trails?
 
-The topographic map indicates the *height* at each position using a scale from `0` (lowest) to `9` (highest). For example:
+The topographic map indicates the **height** at each position using a scale from `0` (lowest) to `9` (highest). For example:
 
 
 ```
@@ -17,11 +17,11 @@ The topographic map indicates the *height* at each position using a scale from `
 ```
 
 
-Based on un-scorched scraps of the book, you determine that a good hiking trail is *as long as possible* and has an *even, gradual, uphill slope*. For all practical purposes, this means that a *hiking trail* is any path that starts at height `0`, ends at height `9`, and always increases by a height of exactly `1` at each step. Hiking trails never include diagonal steps - only *up*, *down*, *left*, or *right* (from the perspective of the map).
+Based on un-scorched scraps of the book, you determine that a good hiking trail is *as long as possible* and has an *even, gradual, uphill slope*. For all practical purposes, this means that a *hiking trail* is any path that starts at height `0`, ends at height `9`, and always increases by a height of exactly `1` at each step. Hiking trails never include diagonal steps - only **up**, **down**, **left**, or **right** (from the perspective of the map).
 
 You look up from the map and notice that the reindeer has helpfully begun to construct a small pile of pencils, markers, rulers, compasses, stickers, and other equipment you might need to update the map with hiking trails.
 
-A *trailhead* is any position that starts one or more hiking trails - here, these positions will always have height 0. Assembling more fragments of pages, you establish that a trailhead's *score* is the number of 9-height positions reachable from that trailhead via a hiking trail. In the above example, the single trailhead in the top left corner has a score of `1` because it can reach a single `9` (the one in the bottom left).
+A **trailhead** is any position that starts one or more hiking trails - here, these positions will always have height 0. Assembling more fragments of pages, you establish that a trailhead's **score** is the number of 9-height positions reachable from that trailhead via a hiking trail. In the above example, the single trailhead in the top left corner has a score of `1` because it can reach a single `9` (the one in the bottom left).
 
 This trailhead has a score of `2`:
 
@@ -53,7 +53,7 @@ This trailhead has a score of `4` because every `9` is reachable via a hiking tr
 ```
 
 
-This topographic map contains *two* trailheads; the trailhead at the top has a score of `1`, while the trailhead at the bottom has a score of `2`:
+This topographic map contains **two** trailheads; the trailhead at the top has a score of `1`, while the trailhead at the bottom has a score of `2`:
 
 
 ```

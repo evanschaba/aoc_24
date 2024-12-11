@@ -2,7 +2,7 @@
 
 The reindeer spends a few minutes reviewing your hiking trail map before realizing something, disappearing for a few minutes, and finally returning with yet another slightly-charred piece of paper.
 
-The paper describes a second way to measure a trailhead called its *rating*. A trailhead's rating is the *number of distinct hiking trails* which begin at that trailhead.
+The paper describes a second way to measure a trailhead called its **rating**. A trailhead's rating is the *number of distinct hiking trails* which begin at that trailhead.
 
 
 For example:

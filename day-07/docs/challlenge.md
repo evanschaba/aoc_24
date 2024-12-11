@@ -24,7 +24,7 @@ You ask how long it'll take; the engineers tell you that it only needs final cal
 
 Each line represents a single equation. The test value appears before the colon on each line; it is your job to determine whether the remaining numbers can be combined with operators to produce the test value.
 
-Operators are *always evaluated left-to-right*, *not* according to precedence rules. Furthermore, numbers in the equations cannot be rearranged. Glancing into the jungle, you can see elephants holding two different types of operators: *add* `(+)` and *multiply* `(*).`
+Operators are *always evaluated left-to-right*, **not** according to precedence rules. Furthermore, numbers in the equations cannot be rearranged. Glancing into the jungle, you can see elephants holding two different types of operators: **add** `(+)` and **multiply** `(*).`
 
 Only three of the above equations can be made true by inserting operators:
 

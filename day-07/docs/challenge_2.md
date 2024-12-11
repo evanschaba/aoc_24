@@ -1,7 +1,7 @@
 # --- Part Two ---
 The engineers seem concerned; the total calibration result you gave them is nowhere close to being within safety tolerances. Just then, you spot your mistake: some well-hidden elephants are holding a *third type of operator*.
 
-The [*concatenation*](https://en.wikipedia.org/wiki/Concatenation) operator `(||)` combines the digits from its left and right inputs into a single number. For example, `12` `||` `345` would become `12345`. All operators are still evaluated left-to-right.
+The [**concatenation**](https://en.wikipedia.org/wiki/Concatenation) operator `(||)` combines the digits from its left and right inputs into a single number. For example, `12` `||` `345` would become `12345`. All operators are still evaluated left-to-right.
 
 Now, apart from the three equations that could be made true using only addition and multiplication, the above example has three more equations that can be made true by inserting operators:
 

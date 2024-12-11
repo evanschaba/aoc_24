@@ -24,9 +24,9 @@ The task is to determine if updates to a manual, defined as sequences of page nu
    - Sum the middle page numbers of all valid updates.
 
 #### Benefits of This Approach
-- **Efficiency**: Using graph traversal (e.g., topological sort or constraints checking) ensures that even larger inputs can be processed quickly.
-- **Scalability**: Isolating rules and updates simplifies validation and reduces redundant checks.
-- **Modularity**: The parsing, validation, and summation steps can be tested and refined independently.
+- ***Efficiency***: Using graph traversal (e.g., topological sort or constraints checking) ensures that even larger inputs can be processed quickly.
+- ***Scalability***: Isolating rules and updates simplifies validation and reduces redundant checks.
+- ***Modularity***: The parsing, validation, and summation steps can be tested and refined independently.
 
 #### Usage Guide
 

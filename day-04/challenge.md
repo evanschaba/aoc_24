@@ -46,7 +46,7 @@ S.S.S.S.SS
 
 Take a look at the little Elf's word search. How many times does XMAS appear?
 
-**Answer**: __
+***Answer***: __
 
 --- Part Two ---
 The Elf looks quizzically at you. Did you misunderstand the assignment?
@@ -80,4 +80,4 @@ In this example, an X-MAS appears 9 times.
 
 Flip the word search from the instructions back over to the word search side and try again. How many times does an X-MAS appear?
 
-**Answer**: __
+***Answer***: __

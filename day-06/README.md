@@ -25,7 +25,7 @@ The goal of this challenge is to predict the patrol path of a guard following a 
 - **Boundary Check**:
   - Detect when the guard moves beyond the map boundaries, signaling the end of the patrol.
 
-- **Simulation**:
+- ***Simulation***:
   - Implement a step-by-step simulation of the guard's movement, applying the patrol rules and updating the visited positions at each step.
 
 ## Insights and Learnings
@@ -39,7 +39,7 @@ The goal of this challenge is to predict the patrol path of a guard following a 
 - **Boundary and Edge Case Handling**:
   - Managing edge cases, such as starting near a boundary or encountering consecutive obstacles, is crucial for robust solutions.
 
-- **Optimization**:
+- ***Optimization***:
   - Efficient storage and retrieval of visited positions (e.g., using sets) minimizes computational overhead.
 
 - **Real-World Analogy**:
