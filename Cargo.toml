@@ -1,4 +1,4 @@
-# This exists to manage the members of this workspaces 
+# This exists to manage the members of this workspace
 #
 # e.g to run group tests
 # cargo test --workspace --all-targets -- --include-ignored
