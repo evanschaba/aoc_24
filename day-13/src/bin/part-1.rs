@@ -88,7 +88,6 @@ mod tests {
     fn test_with_sample() {
         let sample = &gen_sample();
         assert_eq!(solve(&parse(sample)), 480); // Check part 1 result
-        // assert_eq!(part2(&parse_input(sample)), 875318608908);  // Check part 2 result
     }
 
     // Test case using a file-based input
@@ -96,7 +95,6 @@ mod tests {
     fn test_with_input() {
         let input = include_str!("../../docs/challenge_1.txt"); // Read input from file
         assert_eq!(solve(&parse(&input)), 28262); // Check part 1 result
-        // assert_eq!(part2(&parse_input(&input)), 101406661266314);  // Check part 2 result
     }
 }
 
