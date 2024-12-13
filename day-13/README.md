@@ -14,7 +14,7 @@ In this challenge, we are tasked with determining the fewest tokens to win the m
    - For each machine, calculate the number of presses required for buttons A and B to align the claw's position to the prize's coordinates using the equation system.
 
 3. **Implement the calculation:**
-   - Solve the system of linear equations using the determinant method (Cramer's rule).
+   - Solve the system of linear equations using the determinant method ([**Cramer's rule**](https://en.wikipedia.org/wiki/Cramer%27s_rule)).
    - Check for valid solutions where the claw reaches the exact coordinates of the prize.
 
 4. **Optimize token usage:**
