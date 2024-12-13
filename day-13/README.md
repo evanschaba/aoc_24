@@ -1,4 +1,4 @@
-# Day 00: Claw Contraption
+# Day 13: Claw Contraption
 
 [**Challenge Details**](docs/challenge.md)
 
