@@ -1,6 +1,6 @@
+use std::collections::HashMap;
 use std::env;
 use std::fs;
-use std::collections::HashMap;
 
 // cargo run --bin part-2 -- input_2.txt 23387399 ✅
 
@@ -26,8 +26,12 @@ fn main() {
             std::process::exit(1);
         }
 
-        let left = numbers[0].parse::<i64>().expect("Invalid number in left column");
-        let right = numbers[1].parse::<i64>().expect("Invalid number in right column");
+        let left = numbers[0]
+            .parse::<i64>()
+            .expect("Invalid number in left column");
+        let right = numbers[1]
+            .parse::<i64>()
+            .expect("Invalid number in right column");
 
         left_list.push(left);
         right_list.push(right);

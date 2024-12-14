@@ -146,7 +146,7 @@ mod tests {
         let input = "1";
         assert_eq!(solve(input), 0);
     }
-    
+
     #[test]
     fn test_sample() {
         let input = "12345";
@@ -161,7 +161,8 @@ mod tests {
 
     #[test]
     fn test_with_file_input() {
-        let content = fs::read_to_string("docs/challenge_2.txt").expect("Failed to read input file");
+        let content =
+            fs::read_to_string("docs/challenge_2.txt").expect("Failed to read input file");
         assert_eq!(solve(&content.trim()), 6351801932670);
     }
 }

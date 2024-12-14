@@ -1,9 +1,7 @@
-use std::io::{self, BufRead};
 use std::fs;
-
+use std::io::{self, BufRead};
 
 //cargo run < input.txt # solution: 1197984 ✅
-
 
 /// Computes the total distance between two lists after sorting.
 fn calculate_total_distance(mut left: Vec<i32>, mut right: Vec<i32>) -> Result<i32, &'static str> {
@@ -14,7 +12,11 @@ fn calculate_total_distance(mut left: Vec<i32>, mut right: Vec<i32>) -> Result<i
     left.sort_unstable();
     right.sort_unstable();
 
-    Ok(left.iter().zip(right.iter()).map(|(l, r)| (l - r).abs()).sum())
+    Ok(left
+        .iter()
+        .zip(right.iter())
+        .map(|(l, r)| (l - r).abs())
+        .sum())
 }
 
 /// Parses input into two vectors of integers from a given string.
@@ -43,7 +45,11 @@ fn main() {
     // Read from either `input.txt` or stdin.
     let input = fs::read_to_string("input.txt").unwrap_or_else(|_| {
         eprintln!("input.txt not found, falling back to stdin. Enter data below:");
-        io::stdin().lock().lines().collect::<Result<String, _>>().unwrap()
+        io::stdin()
+            .lock()
+            .lines()
+            .collect::<Result<String, _>>()
+            .unwrap()
     });
 
     match parse_input(&input) {

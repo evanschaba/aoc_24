@@ -2,8 +2,8 @@ use regex::Regex;
 
 #[derive(Debug)]
 struct ClawMachine {
-    a: (i64, i64),            // Coordinates for button A's movement vector
-    b: (i64, i64),            // Coordinates for button B's movement vector
+    a: (i64, i64),     // Coordinates for button A's movement vector
+    b: (i64, i64),     // Coordinates for button B's movement vector
     prize: (i64, i64), // Coordinates of the prize
 }
 
@@ -51,9 +51,7 @@ fn handle_presses(cm: &ClawMachine) -> (i64, i64) {
 
     // Verify if the calculated presses give the correct prize coordinates
     // Return the solution if it's correct, otherwise return (0, 0)
-    return if (n * cm.a.0 + m * cm.b.0 == cm.prize.0)
-        && (n * cm.a.1 + m * cm.b.1 == cm.prize.1)
-    {
+    return if (n * cm.a.0 + m * cm.b.0 == cm.prize.0) && (n * cm.a.1 + m * cm.b.1 == cm.prize.1) {
         (n, m) // Valid solution
     } else {
         (0, 0) // Invalid solution

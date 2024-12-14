@@ -106,7 +106,8 @@ mod tests {
 
     #[test]
     fn test_xmas_pattern_count_input_2() {
-        let content = fs::read_to_string("docs/challenge_2.txt").expect("Failed to read input file");
+        let content =
+            fs::read_to_string("docs/challenge_2.txt").expect("Failed to read input file");
         let grid: Vec<Vec<char>> = content
             .lines()
             .map(|line| line.chars().collect::<Vec<_>>())

@@ -1,10 +1,10 @@
 use std::collections::HashMap;
 
 /// Solves the hiking trail problem.
-/// 
+///
 /// # Arguments
 /// * `input` - A string representing the topographic map.
-/// 
+///
 /// # Returns
 /// * `Option<u32>` - The sum of the scores of all trailheads.
 pub fn calculate_trailhead_scores(input: &str) -> Option<u32> {
@@ -26,7 +26,8 @@ pub fn calculate_trailhead_scores(input: &str) -> Option<u32> {
         .enumerate() // Enumerate to get the row index.
         .flat_map(|(row_idx, row)| {
             row.iter().enumerate().filter_map(move |(col_idx, &value)| {
-                if value == 0 { // Check if the current position has a height of 0.
+                if value == 0 {
+                    // Check if the current position has a height of 0.
                     Some((row_idx, col_idx)) // Return the coordinates if it's a trailhead.
                 } else {
                     None
@@ -91,13 +92,7 @@ mod tests {
     fn test_example() {
         // Test input provided as part of the problem example.
         let input = vec![
-            "89010123",
-            "78121874",
-            "87430965",
-            "96549874",
-            "45678903",
-            "32019012",
-            "01329801",
+            "89010123", "78121874", "87430965", "96549874", "45678903", "32019012", "01329801",
             "10456732",
         ]
         .join("\n");

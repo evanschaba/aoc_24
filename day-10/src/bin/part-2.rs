@@ -20,12 +20,12 @@ fn build_grid(input: &str) -> Vec<Vec<u32>> {
 
 // Function to extract trailheads from the grid. A trailhead is defined as any '0' in the grid.
 fn extract_trailheads(grid: &Vec<Vec<u32>>) -> Vec<(usize, usize)> {
-    grid
-        .iter() // Iterate over each row of the grid.
+    grid.iter() // Iterate over each row of the grid.
         .enumerate() // Enumerate to get the row index.
         .flat_map(|(row_id, row)| {
             row.iter().enumerate().filter_map(move |(col_idx, &col)| {
-                if col == 0 { // Check if the current cell is a trailhead (value 0).
+                if col == 0 {
+                    // Check if the current cell is a trailhead (value 0).
                     Some((row_id, col_idx)) // Return the coordinates of the trailhead.
                 } else {
                     None // Return None if the current cell is not a trailhead.
@@ -61,7 +61,8 @@ fn walk(grid: &Vec<Vec<u32>>, start_x: usize, start_y: usize) -> u32 {
     // DFS loop to traverse the grid.
     while let Some((cur_x, cur_y)) = stack.pop() {
         let cur_val = grid[cur_x][cur_y]; // Current value at the position.
-        if cur_val == 9 { // If the value is 9, we found a trail endpoint.
+        if cur_val == 9 {
+            // If the value is 9, we found a trail endpoint.
             count += 1; // Increment the count.
             continue; // Continue to the next iteration.
         }

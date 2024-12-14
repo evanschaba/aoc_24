@@ -24,7 +24,8 @@ fn main() {
 fn calculate_total_stones(stones: &Vec<u64>, blinks: u8) -> u64 {
     let mut memoization_table: HashMap<(u64, u8), u64> = HashMap::new();
 
-    stones.iter()
+    stones
+        .iter()
         .map(|&stone| evolve_stone(stone, blinks, &mut memoization_table))
         .sum()
 }
@@ -52,8 +53,8 @@ fn evolve_stone(stone: u64, blinks: u8, memoization_table: &mut HashMap<(u64, u8
             let left_half = stone / 10u64.pow(digit_count / 2);
             let right_half = stone % 10u64.pow(digit_count / 2);
 
-            evolve_stone(left_half, blinks - 1, memoization_table) +
-            evolve_stone(right_half, blinks - 1, memoization_table)
+            evolve_stone(left_half, blinks - 1, memoization_table)
+                + evolve_stone(right_half, blinks - 1, memoization_table)
         } else {
             // Rule 3: Multiply the stone by 2024 if no other rules apply.
             evolve_stone(stone * 2024, blinks - 1, memoization_table)
@@ -68,10 +69,11 @@ fn evolve_stone(stone: u64, blinks: u8, memoization_table: &mut HashMap<(u64, u8
 #[cfg(test)]
 mod tests {
     use super::*;
- 
+
     #[test]
     fn test_calculate_total_stones_sample() {
-        let stones: Vec<u64> = "125 17".split_whitespace()
+        let stones: Vec<u64> = "125 17"
+            .split_whitespace()
             .map(|num| num.parse::<u64>().unwrap())
             .collect();
 
@@ -81,11 +83,11 @@ mod tests {
     #[test]
     fn test_calculate_total_stones_challenge() {
         let challenge_input: &str = include_str!("../../docs/challenge_2.txt");
-        let stones: Vec<u64> = challenge_input.split_whitespace()
+        let stones: Vec<u64> = challenge_input
+            .split_whitespace()
             .map(|num| num.parse::<u64>().unwrap())
             .collect();
 
         assert_eq!(calculate_total_stones(&stones, 75), 248967696501656);
-  
     }
 }

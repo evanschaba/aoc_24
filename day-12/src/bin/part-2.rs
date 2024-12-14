@@ -22,7 +22,6 @@ fn gen_regions(grid: &Vec<Vec<char>>, rows: usize, cols: usize) -> Vec<Region> {
 
     // Directions for moving up, down, left, and right.
     let directions = [(0, 1), (1, 0), (0, -1), (-1, 0)];
-    
 
     // Traverse the grid to identify regions.
     for row in 0..rows {
@@ -83,9 +82,7 @@ pub fn compute((regions, map): &(Vec<Region>, GardenPlot)) -> usize {
         let mut boundary_edges = HashSet::new();
 
         for &(row, col) in &region.coordinates {
-            for (direction_idx, &(row_offset, col_offset)) in
-                directions.iter().enumerate()
-            {
+            for (direction_idx, &(row_offset, col_offset)) in directions.iter().enumerate() {
                 let adj_row = (row as isize + row_offset) as usize;
                 let adj_col = (col as isize + col_offset) as usize;
 
@@ -146,7 +143,6 @@ pub fn compute((regions, map): &(Vec<Region>, GardenPlot)) -> usize {
     result
 }
 
-
 /// Parses input to generate regions and the corresponding garden map.
 pub fn solve(input: &str) -> usize {
     let cols = input.lines().next().unwrap().len();
@@ -186,7 +182,6 @@ mod tests {
     fn test_with_samples() {
         assert_eq!(solve(&gen_sample()), 80);
         assert_eq!(solve(&gen_sample_2()), 436);
-
     }
 }
 

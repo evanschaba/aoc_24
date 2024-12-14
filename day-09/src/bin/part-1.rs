@@ -23,7 +23,12 @@ fn parse(input: &str) -> Result<Vec<DiskItem>, String> {
                     items.push(DiskItem::FreeSpace(size as i64));
                 }
             }
-            None => return Err(format!("Invalid character at index {}: {}", index, character)),
+            None => {
+                return Err(format!(
+                    "Invalid character at index {}: {}",
+                    index, character
+                ));
+            }
         }
     }
 
@@ -54,25 +59,24 @@ fn compact_files(disk_items: &mut Vec<DiskItem>) -> Result<Vec<DiskItem>, String
                     DiskItem::FreeSpace(_) => {
                         right = right.saturating_sub(1);
                     }
-                    DiskItem::File(file_id, file_size) => {
-                        match free_space_left.cmp(file_size) {
-                            std::cmp::Ordering::Less => {
-                                items.push(DiskItem::File(*file_id, free_space_left));
-                                disk_items[right] = DiskItem::File(*file_id, file_size - free_space_left);
-                                left += 1;
-                            }
-                            std::cmp::Ordering::Greater => {
-                                items.push(DiskItem::File(*file_id, *file_size));
-                                disk_items[left] = DiskItem::FreeSpace(free_space_left - *file_size);
-                                right = right.saturating_sub(1);
-                            }
-                            std::cmp::Ordering::Equal => {
-                                items.push(DiskItem::File(*file_id, *file_size));
-                                left += 1;
-                                right = right.saturating_sub(1);
-                            }
+                    DiskItem::File(file_id, file_size) => match free_space_left.cmp(file_size) {
+                        std::cmp::Ordering::Less => {
+                            items.push(DiskItem::File(*file_id, free_space_left));
+                            disk_items[right] =
+                                DiskItem::File(*file_id, file_size - free_space_left);
+                            left += 1;
                         }
-                    }
+                        std::cmp::Ordering::Greater => {
+                            items.push(DiskItem::File(*file_id, *file_size));
+                            disk_items[left] = DiskItem::FreeSpace(free_space_left - *file_size);
+                            right = right.saturating_sub(1);
+                        }
+                        std::cmp::Ordering::Equal => {
+                            items.push(DiskItem::File(*file_id, *file_size));
+                            left += 1;
+                            right = right.saturating_sub(1);
+                        }
+                    },
                 }
             }
         }
@@ -107,23 +111,19 @@ fn calculate_checksum(compacted_items: &[DiskItem]) -> Result<(i32, i64), String
 /// Solves the problem by parsing the input, compacting the disk items, and calculating the checksum.
 fn solve(input: &str) -> i64 {
     match parse(input) {
-        Ok(mut disk_items) => {
-            match compact_files(&mut disk_items) {
-                Ok(compacted_items) => {
-                    match calculate_checksum(&compacted_items) {
-                        Ok((_, checksum)) => checksum,
-                        Err(err) => {
-                            eprintln!("Error calculating checksum: {}", err);
-                            0
-                        }
-                    }
-                }
+        Ok(mut disk_items) => match compact_files(&mut disk_items) {
+            Ok(compacted_items) => match calculate_checksum(&compacted_items) {
+                Ok((_, checksum)) => checksum,
                 Err(err) => {
-                    eprintln!("Error compacting files: {}", err);
+                    eprintln!("Error calculating checksum: {}", err);
                     0
                 }
+            },
+            Err(err) => {
+                eprintln!("Error compacting files: {}", err);
+                0
             }
-        }
+        },
         Err(err) => {
             eprintln!("Error parsing input: {}", err);
             0
@@ -163,8 +163,8 @@ mod tests {
     #[test]
     fn test_with_file_input() {
         // Read the contents of the input file
-        let content = fs::read_to_string("docs/challenge_1.txt")
-            .expect("Failed to read input file");
+        let content =
+            fs::read_to_string("docs/challenge_1.txt").expect("Failed to read input file");
 
         // Call the algorithm and check the output
         assert_eq!(solve(&content.trim()), 6323641412437);

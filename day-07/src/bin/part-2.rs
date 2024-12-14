@@ -9,8 +9,8 @@ const OP: [char; 3] = [ADD, MULTIPLY, JOIN];
 // A structure to represent an equation consisting of numbers and a result.
 #[derive(Debug)]
 struct Expr {
-    nums: Vec<i64>,   // List of numbers in the equation.
-    result: i64,      // Expected result of the equation.
+    nums: Vec<i64>, // List of numbers in the equation.
+    result: i64,    // Expected result of the equation.
 }
 
 // Entry function to solve all equations provided in the input data.
@@ -31,7 +31,8 @@ fn calibrate(expr: &Expr, ops: &[char]) -> i64 {
 
 // Recursive function to generate operator combinations and check results.
 fn gen_inner_op(expr: &Expr, result: &mut i64, size: usize, ops: &[char], current: &mut Vec<char>) {
-    if size == 0 { // Base case: when all operators are set.
+    if size == 0 {
+        // Base case: when all operators are set.
         // Check if the combination of operators produces the expected result.
         if solve_expr(&expr.nums, current) == expr.result {
             *result = expr.result; // Update the result if it's valid.
@@ -44,7 +45,8 @@ fn gen_inner_op(expr: &Expr, result: &mut i64, size: usize, ops: &[char], curren
         current[size - 1] = *ch;
         gen_inner_op(expr, result, size - 1, ops, current); // Recurse to set the next operator.
 
-        if *result > 0 { // Stop early if a valid result is found.
+        if *result > 0 {
+            // Stop early if a valid result is found.
             return;
         }
     }
@@ -116,7 +118,7 @@ mod tests {
         let nums: Vec<i64> = vec![15, 6];
         assert_eq!(156, solve_expr(&nums, &vec![JOIN]));
     }
-    
+
     #[test]
     fn test_solve_expr_b() {
         let nums: Vec<i64> = vec![6, 8, 6, 15];
@@ -128,7 +130,7 @@ mod tests {
         let nums: Vec<i64> = vec![17, 8, 14];
         assert_eq!(192, solve_expr(&nums, &vec![JOIN, ADD]));
     }
-    
+
     #[test]
     fn test_solve_expr_d() {
         let nums: Vec<i64> = vec![11, 6, 16, 20];

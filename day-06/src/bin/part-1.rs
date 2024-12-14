@@ -106,7 +106,7 @@ fn move_guard(
         println!("Moving to new position: {:?}", new_position);
         *position = new_position;
     }
-} 
+}
 #[cfg(test)]
 mod tests {
     use super::*;

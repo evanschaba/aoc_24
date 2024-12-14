@@ -23,11 +23,15 @@ fn main() {
     let rules: Vec<(i32, i32)> = raw_rules
         .lines()
         .map(|line| {
-            let parts: Vec<i32> = line.split('|')
+            let parts: Vec<i32> = line
+                .split('|')
                 .map(|x| x.trim().parse().expect("Invalid number in rules"))
                 .collect();
             if parts.len() != 2 {
-                panic!("Invalid rule format, expected two numbers separated by '|': {}", line);
+                panic!(
+                    "Invalid rule format, expected two numbers separated by '|': {}",
+                    line
+                );
             }
             (parts[0], parts[1])
         })
@@ -58,7 +62,11 @@ fn main() {
 
 // Function to check if an update follows the rules
 fn follows_rules(update: &[i32], rules: &[(i32, i32)]) -> (bool, i32) {
-    let idx: HashMap<_, _> = update.iter().enumerate().map(|(i, &num)| (num, i)).collect();
+    let idx: HashMap<_, _> = update
+        .iter()
+        .enumerate()
+        .map(|(i, &num)| (num, i))
+        .collect();
 
     for (a, b) in rules {
         if let (Some(&pos_a), Some(&pos_b)) = (idx.get(a), idx.get(b)) {
