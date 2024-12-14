@@ -1,0 +1,11 @@
+[package]
+name = "day-14"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+regex = "1.11.1"
+
+bstr = "1.11"
+cabac = "0.12"
+itertools = "0.13"
