@@ -25,7 +25,6 @@ struct WareHouse {
 }
 
 impl WareHouse {
-    
     // Print the current state of the map
     fn write_map(&self) {
         for y in 0..self.map_height {
