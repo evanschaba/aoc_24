@@ -25,34 +25,6 @@ struct WareHouse {
 }
 
 impl WareHouse {
-    // Parse the map from a textual representation
-    fn parse_input(input: &str) -> WareHouse {
-        let mut layout: Vec<Vec<char>> = input
-            .lines()
-            .map(|line| line.chars().collect::<Vec<char>>())
-            .collect();
-
-        let map_height = layout.len();
-        let map_width = layout[0].len();
-
-        // Find the robot's initial position and replace it with an empty tile
-        for y in 0..map_height {
-            for x in 0..map_width {
-                if layout[y][x] == TILE_ROBOT {
-                    layout[y][x] = TILE_EMPTY;
-                    return WareHouse {
-                        layout,
-                        map_width,
-                        map_height,
-                        robot_x: x,
-                        robot_y: y,
-                    };
-                }
-            }
-        }
-        panic!("Robot's starting position not found on the map");
-    }
-
     // Print the current state of the map
     fn write_map(&self) {
         for y in 0..self.map_height {
@@ -193,7 +165,34 @@ impl WareHouse {
         }
     }
 }
- 
+// Parse the map from a textual representation
+fn parse_input(input: &str) -> WareHouse {
+    let mut layout: Vec<Vec<char>> = input
+        .lines()
+        .map(|line| line.chars().collect::<Vec<char>>())
+        .collect();
+
+    let map_height = layout.len();
+    let map_width = layout[0].len();
+
+    // Find the robot's initial position and replace it with an empty tile
+    for y in 0..map_height {
+        for x in 0..map_width {
+            if layout[y][x] == TILE_ROBOT {
+                layout[y][x] = TILE_EMPTY;
+                return WareHouse {
+                    layout,
+                    map_width,
+                    map_height,
+                    robot_x: x,
+                    robot_y: y,
+                };
+            }
+        }
+    }
+    panic!("Robot's starting position not found on the map");
+}
+
 // Compute the GPS sum for all boxes on the map
 fn calc_gps_coord_boxes_sum(wh: &WareHouse) -> usize {
     let mut gps_sum: usize = 0;
@@ -225,7 +224,7 @@ fn get_simulation_input(input: &str) -> (WareHouse, Vec<char>) {
     let blank_line = input.trim().find("\n\n").unwrap();
 
     // Parse the warehouse map from the input before the blank line
-    let wh = WareHouse::parse_input(&input[..blank_line]);
+    let wh = parse_input(&input[..blank_line]);
 
     // Get the movement instructions from the part of the input after the blank line
     let movements = input[blank_line..]
@@ -312,7 +311,7 @@ v^^>>><<^^<>>^v^<v^vv<>v^<<>^<^v^v><^<<<><<^<v><v<>vv>>v><v^<vv<>v^<<^";
 #O.....OO#
 #OO....OO#
 ##########";
-        let wh = WareHouse::parse_input(map);
+        let wh = parse_input(map);
         assert_eq!(calc_gps_coord_boxes_sum(&wh), 10092);
     }
 
@@ -328,7 +327,7 @@ v^^>>><<^^<>>^v^<v^vv<>v^<<>^<^v^v><^<<<><<^<v><v<>vv>>v><v^<vv<>v^<<^";
 ##..@......[].[][]##
 ##......[][]..[]..##
 ####################";
-        let wh = WareHouse::parse_input(map);
+        let wh = parse_input(map);
         assert_eq!(calc_gps_coord_boxes_sum(&wh), 9021);
     }
 }
