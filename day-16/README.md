@@ -1,4 +1,4 @@
-# Day 00: Reindeer Maze Challenge
+# Day 16: Reindeer Maze Challenge
 
 [**Challenge Details**](docs/challenge.md)
 
