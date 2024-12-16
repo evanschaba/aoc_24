@@ -287,7 +287,7 @@ mod tests {
     }
 
     #[test]
-    fn test_total_gps_coords() {
+    fn test_with_example() {
         const EXAMPLE: &str = "##########
 #..O..O.O#
 #......O.#
@@ -311,6 +311,22 @@ vvv<<^>^v^^><<>>><>^<<><^vv^^<>vvv<>><^^v>^>vv<>v<<<<v<^v>^<^^>>>^<v<v
 v^^>>><<^^<>>^v^<v^vv<>v^<<>^<^v^v><^<<<><<^<v><v<>vv>>v><v^<vv<>v^<<^";
 
         assert_eq!(solve(&EXAMPLE), 9021);
+    }
+
+    #[test]
+    fn test_total_gps_coords() {
+        let map = "####################
+##[].......[].[][]##
+##[]...........[].##
+##[]........[][][]##
+##[]......[]....[]##
+##..##......[]....##
+##..[]............##
+##..@......[].[][]##
+##......[][]..[]..##
+####################";
+        let wh = parse_input(map);
+        assert_eq!(calc_gps_coord_boxes_sum(&wh), 9021);
     }
 }
 
