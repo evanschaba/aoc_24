@@ -41,10 +41,10 @@ The problem involves calculating the cost of fencing various garden regions defi
 
 - **Running Part 1**  
   To run the program for part 1, use:  
-  `cargo run --bin part-1 <input_file>`
+  `cargo run --bin part-1 -- <input_file>`
 
 - **Running Part 2**  
   To run the program for part 2, use:  
-  `cargo run --bin part-2 <input_file>`
+  `cargo run --bin part-2 -- <input_file>`
 
 Replace `<input_file>` with the path to your input file.
