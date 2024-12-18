@@ -18,7 +18,6 @@ This program outputs a copy of itself if register `A` is instead initialized to 
 
 **What is the lowest positive initial value for register A that causes the program to output a copy of itself?**
 
-
 To begin, [get your puzzle input](./challenge_2.txt).
 
 Answer: ________

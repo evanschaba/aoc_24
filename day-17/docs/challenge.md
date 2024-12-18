@@ -1,6 +1,6 @@
 # --- Day 17: Chronospatial Computer ---
 
-The Historians push the button on their strange device, but this time, you all just feel like you're [**falling**](https://adventofcode.com/`2018`/day/`6`).
+The Historians push the button on their strange device, but this time, you all just feel like you're [**falling**](https://adventofcode.com/2018/day/6).
 
 "Situation critical", the device announces in a familiar voice. "Bootstrapping process failed. Initializing debugger...."
 
@@ -64,8 +64,8 @@ Your first task is to **determine what the program is trying to output**. To do 
 
 Using the information provided by the debugger, initialize the registers to the given values, then run the program. Once it halts, **what do you get if you use commas to join the values it output into a single string?**
 
-To begin, [get your puzzle input](./challenge_`1`.txt).
+To begin, [get your puzzle input](./challenge_1.txt).
 
 Answer: ________
 
-[**PART `2`**](./challenge_`2`.md)
+[**PART 2**](./challenge_2.md)

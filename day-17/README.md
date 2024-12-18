@@ -42,7 +42,7 @@ The task is split into two parts:
 
 1. **Bit Manipulation**: Operations like [bitwise XOR](https://en.wikipedia.org/wiki/Bitwise_operation#XOR) are critical in fields such as cryptography, error detection (checksums), and efficient algorithms for switching data values without temporary variables.
 
-2. **Self-Replicating Programs**: Part 2 involves creating programs that output their own source code—akin to **[quine programs](https://en.wikipedia.org/wiki/Quine_(computing))**. This concept appears in **debuggers**, **compilers**, and even malicious code like [computer worms](https://en.wikipedia.org/wiki/Computer_worm).
+2. **Self-Replicating Programs**: Part 2 involves creating programs that output their own source code—akin to **[quine programs](https://en.wikipedia.org/wiki/Quine_computing)**. This concept appears in **debuggers**, **compilers**, and even malicious code like [computer worms](https://en.wikipedia.org/wiki/Computer_worm).
 
 3. **Virtual Machines (VMs)**: Simulating a CPU with registers and opcodes is foundational for real-world systems like **Java Virtual Machine (JVM)** and emulators for retro systems.
 
