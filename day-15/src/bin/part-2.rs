@@ -35,7 +35,7 @@ impl WareHouse {
                     print!("{}", TILE_ROBOT);
                 }
             }
-            println!("");
+            //println!("");
         }
     }
 
@@ -244,9 +244,7 @@ fn simulate(wh: WareHouse, moves: &Vec<char>) -> usize {
 
     stretched_map.write_map();
 
-    let result = calc_gps_coord_boxes_sum(&wh);
-
-    result
+    calc_gps_coord_boxes_sum(&wh)
 }
 
 fn get_simulation_input(input: &str) -> (WareHouse, Vec<char>) {
@@ -267,9 +265,8 @@ fn get_simulation_input(input: &str) -> (WareHouse, Vec<char>) {
 }
 
 fn solve(input: &str) -> usize {
-    let (wh, movements) = get_simulation_input(&input);
-    let result = simulate(wh.clone(), &movements);
-    result
+    let (wh, movements) = get_simulation_input(input);
+    simulate(wh.clone(), &movements)
 }
 
 #[cfg(test)]

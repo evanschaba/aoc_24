@@ -33,7 +33,7 @@ fn main() {
     println!("Number of X-MAS patterns found: {}", count);
 }
 
-fn has_xmas(grid: &Vec<Vec<char>>, i: usize, j: usize) -> bool {
+fn has_xmas(grid: &[Vec<char>], i: usize, j: usize) -> bool {
     if grid[i][j] != 'A' {
         return false;
     }

@@ -19,7 +19,7 @@ fn build_grid(input: &str) -> Vec<Vec<u32>> {
 }
 
 // Function to extract trailheads from the grid. A trailhead is defined as any '0' in the grid.
-fn extract_trailheads(grid: &Vec<Vec<u32>>) -> Vec<(usize, usize)> {
+fn extract_trailheads(grid: &[Vec<u32>]) -> Vec<(usize, usize)> {
     grid.iter() // Iterate over each row of the grid.
         .enumerate() // Enumerate to get the row index.
         .flat_map(|(row_id, row)| {
@@ -43,7 +43,7 @@ fn solve(input: &str) -> Option<u32> {
 }
 
 // Function to calculate the sum of ratings for each trailhead.
-fn calculate_ratings(grid: &Vec<Vec<u32>>, trailheads: &[(usize, usize)]) -> Option<u32> {
+fn calculate_ratings(grid: &[Vec<u32>], trailheads: &[(usize, usize)]) -> Option<u32> {
     let mut res = 0; // Initialize the result to 0.
 
     for &(x, y) in trailheads {
@@ -54,7 +54,7 @@ fn calculate_ratings(grid: &Vec<Vec<u32>>, trailheads: &[(usize, usize)]) -> Opt
 }
 
 // Function to perform a depth-first search (DFS) from a given starting point to count trails.
-fn walk(grid: &Vec<Vec<u32>>, start_x: usize, start_y: usize) -> u32 {
+fn walk(grid: &[Vec<u32>], start_x: usize, start_y: usize) -> u32 {
     let mut stack = vec![(start_x, start_y)]; // Stack for DFS, initialized with the starting position.
     let mut count = 0; // Counter for the number of trails.
 

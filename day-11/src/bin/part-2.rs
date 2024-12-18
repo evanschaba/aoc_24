@@ -21,7 +21,7 @@ fn main() {
 }
 
 // Calculates the total number of stones after a given number of blinks.
-fn calculate_total_stones(stones: &Vec<u64>, blinks: u8) -> u64 {
+fn calculate_total_stones(stones: &[u64], blinks: u8) -> u64 {
     let mut memoization_table: HashMap<(u64, u8), u64> = HashMap::new();
 
     stones

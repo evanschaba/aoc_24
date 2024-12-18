@@ -69,7 +69,8 @@ fn solve(input: &str) -> i64 {
                 let mut found = false;
                 let mut empty_space_size = 0;
 
-                for j in 0..index {
+                // for j in 0..index {
+                for (j, _item) in items.iter().enumerate().take(index) {
                     if let DiskItem::FreeSpace(space) = items[j] {
                         if space >= size {
                             slot_index = j;

@@ -10,9 +10,9 @@ struct ClawMachine {
 /// Parse the input string into a vector of Configuration structs.
 fn parse(input: &str) -> Vec<ClawMachine> {
     // Regex pattern to match the input format
-    let part_pattern =
+    let pattern =
         r"Button A: X\+(\d+), Y\+(\d+)\s*Button B: X\+(\d+), Y\+(\d+)\s*Prize: X=(\d+), Y=(\d+)";
-    let rx = Regex::new(&part_pattern).unwrap(); // Compile the regex
+    let rx = Regex::new(pattern).unwrap(); // Compile the regex
 
     rx.captures_iter(input) // Iterate over all matches in the input string
         .map(|c| {
@@ -27,7 +27,7 @@ fn parse(input: &str) -> Vec<ClawMachine> {
 }
 
 /// Part 2: Adjust prize coordinates and calculate the total cost.
-fn solve(cms: &Vec<ClawMachine>) -> i64 {
+fn solve(cms: &[ClawMachine]) -> i64 {
     cms.iter()
         .map(|cm| {
             // Adjust prize coordinates with a large offset
@@ -39,7 +39,7 @@ fn solve(cms: &Vec<ClawMachine>) -> i64 {
                 ..*cm // Keep the other fields the same as in the original configuration
             };
             let (n, m) = handle_presses(&cm_input); // Get the new number of presses
-            n * 3 + m * 1 // Cost calculation: 3 tokens for A and 1 token for B
+            n * 3 + m // Cost calculation: 3 tokens for A and 1 token for B
         })
         .sum() // Return the sum of costs for all configurations
 }
@@ -59,11 +59,11 @@ fn handle_presses(cm: &ClawMachine) -> (i64, i64) {
 
     // Verify if the calculated presses give the correct prize coordinates
     // Return the solution if it's correct, otherwise return (0, 0)
-    return if (n * cm.a.0 + m * cm.b.0 == cm.prize.0) && (n * cm.a.1 + m * cm.b.1 == cm.prize.1) {
+    if (n * cm.a.0 + m * cm.b.0 == cm.prize.0) && (n * cm.a.1 + m * cm.b.1 == cm.prize.1) {
         (n, m) // Valid solution
     } else {
         (0, 0) // Invalid solution
-    };
+    }
 }
 
 #[cfg(test)]

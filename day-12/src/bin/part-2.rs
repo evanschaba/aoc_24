@@ -16,7 +16,7 @@ pub struct Region {
 }
 
 /// Generates regions from the grid based on connected garden plots.
-fn gen_regions(grid: &Vec<Vec<char>>, rows: usize, cols: usize) -> Vec<Region> {
+fn gen_regions(grid: &[Vec<char>], rows: usize, cols: usize) -> Vec<Region> {
     let mut visited = HashSet::new();
     let mut regions = Vec::new();
 

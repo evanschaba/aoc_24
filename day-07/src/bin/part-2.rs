@@ -53,7 +53,7 @@ fn gen_inner_op(expr: &Expr, result: &mut i64, size: usize, ops: &[char], curren
 }
 
 // Evaluate the equation using the given numbers and operator sequence.
-fn solve_expr(nums: &Vec<i64>, ops: &Vec<char>) -> i64 {
+fn solve_expr(nums: &[i64], ops: &[char]) -> i64 {
     let mut result = nums[0]; // Start with the first number.
 
     for (i, op) in ops.iter().enumerate() {

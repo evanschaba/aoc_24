@@ -36,7 +36,7 @@ fn parse(input: &str) -> Result<Vec<DiskItem>, String> {
 }
 
 /// Compacts files by moving them into free spaces on the disk.
-fn compact_files(disk_items: &mut Vec<DiskItem>) -> Result<Vec<DiskItem>, String> {
+fn compact_files(disk_items: &mut [DiskItem]) -> Result<Vec<DiskItem>, String> {
     if disk_items.is_empty() {
         return Ok(vec![]);
     }
@@ -179,6 +179,6 @@ fn main() {
     }
 
     let content = std::fs::read_to_string(&args[1]).expect("Failed to read input file");
-    let result = solve(&content.trim());
+    let result = solve(content.trim());
     println!("Result: {}", result);
 }

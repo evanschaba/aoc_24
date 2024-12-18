@@ -3,13 +3,10 @@ extern crate regex;
 use regex::Regex;
 use std::collections::HashSet;
 
+type Robots = Vec<((i32, i32), (i32, i32))>;
+
 // Simulate the positions of robots after `t` seconds with wrapping around
-fn simulate_robots(
-    robots: &Vec<((i32, i32), (i32, i32))>,
-    t: i32,
-    max_x: i32,
-    max_y: i32,
-) -> Vec<(i32, i32)> {
+fn simulate_robots(robots: &Robots, t: i32, max_x: i32, max_y: i32) -> Vec<(i32, i32)> {
     robots
         .iter()
         .map(|&((rx, ry), (vx, vy))| {
