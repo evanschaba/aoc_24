@@ -46,12 +46,12 @@ fn get_neighbors(coord: &Coordinate) -> Vec<Coordinate> {
 fn simulate_memory_grid(grid: &MemoryGrid, time: usize) -> Option<u32> {
     let (width, height) = if grid.len() > 1000 { (71, 71) } else { (7, 7) };
 
-    let mut memory_space: HashSet<Coordinate> = (0..width)
+    let mut space: HashSet<Coordinate> = (0..width)
         .flat_map(|x| (0..height).map(move |y| (x, y)))
         .collect();
 
     for coord in grid.iter().take(time) {
-        memory_space.remove(coord);
+        space.remove(coord);
     }
 
     let mut to_explore = VecDeque::from([((0, 0), 0)]);
@@ -67,7 +67,7 @@ fn simulate_memory_grid(grid: &MemoryGrid, time: usize) -> Option<u32> {
         }
 
         for neighbor in get_neighbors(&current) {
-            if !visited.contains(&neighbor) && memory_space.contains(&neighbor) {
+            if !visited.contains(&neighbor) && space.contains(&neighbor) {
                 to_explore.push_front((neighbor, distance + 1));
             }
         }
@@ -77,7 +77,7 @@ fn simulate_memory_grid(grid: &MemoryGrid, time: usize) -> Option<u32> {
 }
 
 /// Part 2: Finds the first byte that blocks the path to the exit.
-fn solve_part2(grid: &MemoryGrid) -> String {
+fn solve(grid: &MemoryGrid) -> String {
     let mut reachable = 0;
     let mut unreachable = grid.len() - 1;
 
@@ -96,7 +96,7 @@ fn solve_part2(grid: &MemoryGrid) -> String {
 fn main() {
     let input = read_input_from_arg();
     let grid = parse_input(&input);
-    let result = solve_part2(&grid);
+    let result = solve(&grid);
 
     println!("result: {}", result);
 }
@@ -135,14 +135,14 @@ mod tests {
 
         let grid = parse_input(input.trim());
         // The byte at 6,1 is the first that prevents the exit from being reachable.
-        assert_eq!(solve_part2(&grid), "6,1");
+        assert_eq!(solve(&grid), "6,1");
     }
 
     #[test]
     fn test_with_input() {
         let input = read_input_from_path("docs/challenge_2.txt");
         let grid = parse_input(&input);
-        let result = solve_part2(&grid);
+        let result = solve(&grid);
 
         assert_eq!(result, "30,12")
     }
