@@ -14,7 +14,7 @@ jobs:
         with:
           toolchain: nightly
           profile: minimal
-          component: clippy
+          component: clippy, rustfmt
       - run: cargo test --all-features
       - name: Run tests for each project
         run: cargo test --workspace --all-features -- --nocapture
