@@ -10,11 +10,25 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      
+      # Set up the Rust toolchain with Clippy and Rustfmt components
       - uses: actions-rust-lang/setup-rust-toolchain@v1
         with:
           toolchain: nightly
           profile: minimal
           component: clippy, rustfmt
+
+      # Run Clippy to check for linting issues
+      - name: Run Clippy
+        run: cargo clippy --workspace --all-features -- -D warnings
+
+      # Run Rustfmt to check if code is properly formatted
+      - name: Run Rustfmt
+        run: cargo fmt -- --check
+
+      # Run the tests for all features
       - run: cargo test --all-features
+
+      # Run tests for each project (with --nocapture to see the output)
       - name: Run tests for each project
         run: cargo test --workspace --all-features -- --nocapture
