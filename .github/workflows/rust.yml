@@ -1,4 +1,4 @@
-name: "Test Suite"
+name: "Rust Simple CI"
 
 on:
   push:
@@ -16,8 +16,8 @@ jobs:
           profile: minimal
           component: clippy
       - run: cargo test --all-features
-    - name: Get workspace members and run tests
-      run: |
+      - name: Get workspace members and run tests
+        run: |
           workspaces=$(cargo metadata --format-version 1 | jq -r '.workspace.members[]')
           for workspace in $workspaces; do
             cargo test --manifest-path "$workspace/Cargo.toml"
