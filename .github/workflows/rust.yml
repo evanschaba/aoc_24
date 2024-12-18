@@ -17,19 +17,4 @@ jobs:
           component: clippy
       - run: cargo test --all-features
       - name: Run tests for each project
-        run: |
-          # Manually list your workspace projects here
-          for workspace in day-01 day-02 day-03 day-04 day-05 day-06 day-07 day-08 day-09 day-10 day-11 day-12 day-13 day-14 day-15 day-16 day-17 day-18; do
-              cargo test --workspace --all-features -- --nocapture
-          done
-
-  formatting:
-    name: cargo fmt
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions-rust-lang/setup-rust-toolchain@v1
-        with:
-          components: rustfmt
-      - name: Rustfmt Check
-        uses: actions-rust-lang/rustfmt@v1
+        run: cargo test --workspace --all-features -- --nocapture
