@@ -1,42 +1,35 @@
-name: Rust
+name: "Test Suite"
 
 on:
   push:
-    branches: [ "main" ]
   pull_request:
-    branches: [ "main" ]
-
-env:
-  CARGO_TERM_COLOR: always
 
 jobs:
-  formatting:
-    name: cargo fmt
+  test:
+    name: cargo test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      # Ensure rustfmt is installed and setup problem matcher
       - uses: actions-rust-lang/setup-rust-toolchain@v1
         with:
-          components: rustfmt
-      - name: Rustfmt Check
-        uses: actions-rust-lang/rustfmt@v1
-  test:
-    runs-on: ubuntu-latest
-
-    steps:
-    - uses: actions/checkout@v4
-    - name: Set up Rust nightly
-      uses: actions-rust-lang/setup-rust-toolchain@v1
-      with:
-        toolchain: nightly
-        profile: minimal
-        component: clippy
-    - name: Build
-      run: cargo build --verbose
+          toolchain: nightly
+          profile: minimal
+          component: clippy
+      - run: cargo test --all-features
     - name: Get workspace members and run tests
       run: |
           workspaces=$(cargo metadata --format-version 1 | jq -r '.workspace.members[]')
           for workspace in $workspaces; do
             cargo test --manifest-path "$workspace/Cargo.toml"
           done
+
+  formatting:
+    name: cargo fmt
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions-rust-lang/setup-rust-toolchain@v1
+        with:
+          components: rustfmt
+      - name: Rustfmt Check
+        uses: actions-rust-lang/rustfmt@v1
