@@ -18,6 +18,9 @@ jobs:
           profile: minimal
           component: rustfmt
 
+      # Install rustfmt for the nightly toolchain
+      - run: rustup component add rustfmt --toolchain nightly
+
       # Install Clippy for the nightly toolchain
       - run: rustup component add clippy --toolchain nightly
 
