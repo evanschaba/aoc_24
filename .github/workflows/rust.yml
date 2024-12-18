@@ -1,0 +1,26 @@
+name: Rust
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Build
+      run: cargo build --verbose
+    - name: Get workspace members and run tests
+      run: |
+          workspaces=$(cargo metadata --format-version 1 | jq -r '.workspace.members[]')
+          for workspace in $workspaces; do
+            cargo test --manifest-path "$workspace/Cargo.toml"
+          done
