@@ -16,6 +16,12 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
+    - name: Set up Rust nightly
+      uses: actions/setup-rust@v1
+      with:
+        toolchain: nightly
+        profile: minimal
+        component: clippy
     - name: Build
       run: cargo build --verbose
     - name: Get workspace members and run tests
