@@ -33,7 +33,7 @@ jobs:
         run: cargo +nightly fmt -- --check
 
       # Run the tests for all features with nightly toolchain
-      - run: cargo +nightly test --all-features
+      #- run: cargo +nightly test --all-features
 
       # Run tests for each project (with --nocapture to see the output)
       - name: Run tests for each project
