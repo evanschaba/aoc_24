@@ -66,9 +66,9 @@ pub fn solve(input: &str) -> usize {
 }
 
 fn main() {
-    let input_data = read_file_from_args();
+    let input = read_file_from_args();
 
-    println!("result: {:?}", solve(&input_data));
+    println!("result: {:?}", solve(&input));
 }
 
 #[cfg(test)]
