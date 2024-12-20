@@ -46,7 +46,6 @@ In this example, **`6`** of the eight designs are possible with the available to
 
 To get into the onsen as soon as possible, consult your list of towel patterns and desired designs carefully. **How many designs are possible?**
 
-
 To begin, [get your puzzle input](./challenge_1.txt).
 
 Answer: ________
