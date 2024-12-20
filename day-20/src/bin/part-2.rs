@@ -2,7 +2,7 @@ use std::collections::{HashSet, VecDeque};
 
 type Coord = (i32, i32);
 
-const DURATION: i32 = 20;  // Maximum duration allowed for a cheat in picoseconds.
+const DURATION: i32 = 20; // Maximum duration allowed for a cheat in picoseconds.
 
 #[derive(Debug)]
 pub struct Race {
@@ -11,7 +11,7 @@ pub struct Race {
     pub end: Coord,
 }
 
-/// Pathfinding GOLD 🔱 SO cool 😎: https://docs.rs/pathfinding/latest/pathfinding/ 
+// Pathfinding GOLD 🔱 SO cool 😎: https://docs.rs/pathfinding/latest/pathfinding/
 
 /// Reads the input file provided as a command-line argument.
 /// Returns the content of the file as a `String`.
@@ -99,7 +99,8 @@ fn count_valid_shortcuts(race: &Race, min_saved_steps: i32) -> usize {
     // Check each pair of points (start and end) to see if a valid shortcut can be made.
     for (start_coord, start_cost) in &distances {
         for (end_coord, end_cost) in &distances {
-            let distance = (end_coord.0 - start_coord.0).abs() + (end_coord.1 - start_coord.1).abs();
+            let distance =
+                (end_coord.0 - start_coord.0).abs() + (end_coord.1 - start_coord.1).abs();
 
             // Check if the shortcut is valid: distance should be within the allowed limit, and
             // the cost difference should be enough to save the required number of steps.

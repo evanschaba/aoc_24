@@ -15,8 +15,8 @@ jobs:
       - uses: actions-rust-lang/setup-rust-toolchain@v1
         with:
           toolchain: nightly
-          profile: minimal
-          component: rustfmt
+          # profile: minimal
+          # component: rustfmt
 
       # Install rustfmt for the nightly toolchain
       - run: rustup component add rustfmt --toolchain nightly
