@@ -100,7 +100,7 @@ fn compute_sequences(initial_value: isize, steps: isize) -> HashMap<Vec<isize>, 
 mod tests {
     use super::*;
     #[test]
-    fn test_part2() {
+    fn test_with_example() {
         let input = r#"1
 2
 3
@@ -112,7 +112,7 @@ mod tests {
     }
 
     #[test]
-    fn test_with_input_2() {
+    fn test_with_input() {
         let input = read_file_from_path("docs/challenge_2.txt"); // Load sample input for Part 2
         assert_eq!(solve(&input).unwrap(), 2058); // Verify the result for Part 2
     }

@@ -38,7 +38,7 @@ fn calculate_nth_secret(initial_value: isize, steps: isize) -> isize {
 mod tests {
     use super::*;
     #[test]
-    fn test_part1() {
+    fn test_with_example() {
         let input = r#"1
 10
 100
