@@ -26,10 +26,10 @@ pub fn solve(input: &str) -> isize {
 
 /// Computes the nth secret number for a given initial value
 fn calculate_nth_secret(initial_value: isize, steps: isize) -> isize {
-    let calc_nth_secret = |mut secret_value: isize| -> isize {
-        secret_value = ((secret_value * 64) ^ secret_value) % 16_777_216; // Step 1: Multiply, XOR, and prune
-        secret_value = ((secret_value / 32) ^ secret_value) % 16_777_216; // Step 2: Divide, XOR, and prune
-        ((secret_value * 2048) ^ secret_value) % 16_777_216 // Step 3: Multiply, XOR, and prune
+    let calc_nth_secret = |mut s: isize| -> isize {
+        s = ((s * 64) ^ s) % 16_777_216; // Step 1: Multiply, XOR, and prune
+        s = ((s / 32) ^ s) % 16_777_216; // Step 2: Divide, XOR, and prune
+        ((s * 2048) ^ s) % 16_777_216 // Step 3: Multiply, XOR, and prune
     };
     (0..steps).fold(initial_value, |current, _| calc_nth_secret(current)) // Apply the evolution function repeatedly
 }
