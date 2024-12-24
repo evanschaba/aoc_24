@@ -1,6 +1,2 @@
-.aoc_template
-
-# Added by cargo
-
 /target
 Cargo.lock

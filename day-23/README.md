@@ -58,27 +58,28 @@ This challenge involves analyzing a network of computers to identify specific gr
 
 ---
 
-## Usage Guide
+#### Usage Guide
 
-### Project Setup
-Use the provided `setup.sh` to install dependencies and run the program:
+- **Linting**  
+  `cargo clippy`
 
-```bash
-#!/bin/bash
-# setup.sh: Set up the project environment and install dependencies.
+- **Formatting**  
+  `cargo fmt`
 
-set -e
+- **Autofix**  
+  `cargo clippy --fix && cargo fmt`
 
-# Ensure Rust is installed
-if ! command -v cargo &> /dev/null; then
-  echo "Rust is not installed. Please install Rust before running this script."
-  exit 1
-fi
+- **Testing**  
+  `cargo test`
 
-# Install dependencies
-cargo build
+- **Running Part 1**  
+  To run the program for part 1, use:  
+  `cargo run --bin part-1 -- <input_file>`
 
-# Start cargo-watch for auto-reload during development
-cargo install cargo-watch || echo "cargo-watch is already installed."
+- **Running Part 2**  
+  To run the program for part 2, use:  
+  `cargo run --bin part-2 -- <input_file>`
 
-echo "Setup complete. You can now run the project."
+Replace `<input_file>` with the path to your input file.
+
+---
