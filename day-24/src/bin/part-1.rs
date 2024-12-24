@@ -122,6 +122,7 @@ fn solve(input: &str) -> u64 {
     // Compute the result based on wire and gate data
     compute_result(&wires, &gates, &HashMap::new())
 }
+
 fn main() {
     let input = read_file_from_args();
 
@@ -132,7 +133,7 @@ fn main() {
 mod tests {
     use super::*;
 
-    // Test for Part 1: Simulating the gates and producing the expected output on the z wires
+    // Simulating the gates and producing the expected output on the z wires
     #[test]
     fn test_with_example() {
         let input = r#"x00: 1
@@ -188,7 +189,7 @@ tnw OR pbm -> gnj
         let expected_result: u64 = 2024;
         let result = solve(input);
         assert_eq!(
-            result, expected_result,
+            result, 2024,
             "Expected: {}, Got: {}",
             expected_result, result
         );

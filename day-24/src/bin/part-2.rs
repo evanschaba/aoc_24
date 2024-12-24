@@ -108,9 +108,9 @@ fn solve(input: &str) -> String {
     broken_nodes.join(",")
 }
 
-/// Main entry point of the program.
 fn main() {
     let input = read_file_from_args();
+
     println!("result: {}", solve(&input));
 }
 
@@ -118,7 +118,7 @@ fn main() {
 mod tests {
     use super::*;
 
-    // Test for solving the problem with an example input
+    // Simulating the gates and producing the expected output on the z wires
     #[test]
     fn test_part_example() {
         let input = r#"x00: 0
@@ -151,7 +151,6 @@ x05 AND y05 -> z00"#;
         );
     }
 
-    // Test for checking input file parsing and solution correctness
     #[test]
     fn test_with_input() {
         let input = read_file_by_path("docs/challenge_2.txt");
