@@ -1,4 +1,5 @@
-# Day 25: Virtual Lock and Key Challenge [FINAL] ⭐️⭐️ 🎄 ⭐️⭐️
+# Day 25: Virtual Lock and Key Challenge 
+### ⭐️🎄  [FINAL]  🎄⭐️
 
 [**Challenge Details**](docs/challenge.md)
 
