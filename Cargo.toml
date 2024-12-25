@@ -5,7 +5,6 @@
 #
 # e.g to run benchmarks
 # cargo bench --all
-
 [package]
 name = "aoc_24"
 version = "0.1.0"
@@ -33,7 +32,14 @@ members = [
     "day-15",
     "day-16",
     "day-17",
-    "day-18", "day-19", "day-20", "day-21", "day-22", "day-23", "day-24",
+    "day-18",
+    "day-19",
+    "day-20",
+    "day-21",
+    "day-22",
+    "day-23",
+    "day-24",
+    "day-25",
 ]
 
 [dependencies]
